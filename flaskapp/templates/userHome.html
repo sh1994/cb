@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cloud Bot</title>
+   
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/css/signup.css" rel="stylesheet">
+    <script src="../static/js/jquery-1.11.2.js"></script>
+    
+   
+  </head>
+ <script type="text/javascript">
+
+     window.onload = function(){
+ 
+     document.getElementById('s3btn').onclick = function(){
+           alert(document.getElementById('inpbtn').value);
+
+ }
+
+
+
+  }
+
+</script>
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="/logout">Logout</a></li>
+          </ul>
+        </nav>
+          <h3 class="text-muted">Cloud Bot</h3>
+     
+        </div>
+      <div>
+          <nav>
+                <ul class="nav nav-pills pull-left">
+                    <li role="presentation" class="active"><a href="#">Data Lake</a>
+                    </li>
+                    <li role="presentation"><a href="#">AWS S3</a>
+                    </li>
+                    <li role="presentation"><a href="showSignUp">AWS RedShift</a>
+                    </li>
+                </ul>
+            </nav>
+      </div>
+  
+   <div class="jumbotron" style="margin-top:10px;">     
+     
+         <form action="/printtablename" method="post">
+     
+         {% for tbnames in data %}
+   <div style="margin-top:10px;margin-left:-350px;">
+       <input type="checkbox" name="input_table"  value={{tbnames[0]}} ><h3 style="margin-left:10px;">{{tbnames[0]}}</h3></input>
+     </div>
+         {% endfor %}
+      <button type="submit" value="Submit">Push to s3</button>
+       </form>
+     </div>
+      
+      <footer class="footer">
+        <p>&copy; Company 2015</p>
+      </footer>
+
+
+    </div>
+  </body>
+</html>
+
