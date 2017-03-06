@@ -1,21 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Cloud Bot</title>
-   
+
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
     <link href="../static/css/signup.css" rel="stylesheet">
     <script src="../static/js/jquery-1.11.2.js"></script>
-    
-   
+
+
   </head>
  <script type="text/javascript">
 
      window.onload = function(){
- 
+
      document.getElementById('s3btn').onclick = function(){
            alert(document.getElementById('inpbtn').value);
 
@@ -36,37 +35,39 @@
           </ul>
         </nav>
           <h3 class="text-muted">Cloud Bot</h3>
-     
-        </div>
+          </div>
       <div>
           <nav>
                 <ul class="nav nav-pills pull-left">
-                    <li role="presentation" class="active"><a href="#">Data Lake</a>
+                    <li role="presentation"><a href="/userHome">Data Lake</a>
                     </li>
-
-                    <li role="presentation"><a href="S3tab">AWS S3</a>
+                    <li role="presentation" class="active"><a href="/S3tab">AWS S3</a>
                     </li>
-                    <li role="presentation"><a href="showSignin">AWS RedShift</a>
+                    <li role="presentation"><a href="/showSignin">AWS RedShift</a>
                     </li>
                 </ul>
             </nav>
-      </div>
-  
-   <div class="jumbotron" style="margin-top:10px;">     
-         <h4 style="margin-left:-420px">Demo db tables</h4>    
-         <form action="/printtablename" method="post">
-             <button type="submit" value="Submit">Push to S3</button>
-         <ol>
-         {% for tbnames in data %}
-  <li>
-      <div style="margin-top:10px;margin-left:-350px;">
-       <input type="checkbox" name="input_table"  value={{tbnames[0]}} ><h5 style="margin-left:10px;align:left;">{{tbnames[0]}}</h5></input>
-     </div></li>
-         {% endfor %}
-       </ol>
-       </form>
-     </div>
-      
+        </div>
+
+      <div class="jumbotron" style="margin-top:10px;">
+         <h4 style="margin-left:-420px"> Select objects</h4>
+
+            <form action="/s3_delete_bucketObject" method="post">
+               <button type="submit" value="Submit">Delete Objects</button>
+               <input type='hidden' name='bucket' value={{bucket}}>          
+               <ol>
+
+            {% for names in bucket_objects %}
+                 <li>
+                 <div style="margin-top:10px;margin-left:-350px;">
+                 <input type="checkbox" name="input_bucket_object"  value={{names}} ><h5>{{names}}</h5></in$
+                </div>
+                </li>
+            {% endfor %}
+            </ol>
+        </form>
+   
+  </div>
       <footer class="footer">
         <p>&copy; HSBC 2017</p>
       </footer>

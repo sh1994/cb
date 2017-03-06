@@ -41,32 +41,32 @@
       <div>
           <nav>
                 <ul class="nav nav-pills pull-left">
-                    <li role="presentation" class="active"><a href="#">Data Lake</a>
+                    <li role="presentation"><a href="userHome">Data Lake</a>
                     </li>
-
-                    <li role="presentation"><a href="S3tab">AWS S3</a>
+                    <li role="presentation" class="active"><a href="#">AWS S3</a>
                     </li>
                     <li role="presentation"><a href="showSignin">AWS RedShift</a>
                     </li>
                 </ul>
             </nav>
       </div>
-  
-   <div class="jumbotron" style="margin-top:10px;">     
-         <h4 style="margin-left:-420px">Demo db tables</h4>    
-         <form action="/printtablename" method="post">
-             <button type="submit" value="Submit">Push to S3</button>
-         <ol>
-         {% for tbnames in data %}
-  <li>
-      <div style="margin-top:10px;margin-left:-350px;">
-       <input type="checkbox" name="input_table"  value={{tbnames[0]}} ><h5 style="margin-left:10px;align:left;">{{tbnames[0]}}</h5></input>
-     </div></li>
-         {% endfor %}
-       </ol>
-       </form>
-     </div>
+     
       
+      <div class="jumbotron" style="margin-top:10px;">
+         <form action="/s3_delete_bucketList" method="post">
+               <button type="submit" value="Submit">Delete Buckets</button>
+            <ol>
+                               
+            {% for names in bucket_list %}
+                 <li onclick="location.href ="http://ec2-54-164-144-76.compute-1.amazonaws.com/S3tab/{{names}}">
+                 <div style="margin-top:10px;margin-left:-350px;">
+                 <input type="checkbox" name="input_bucket"  value={{names}} ><h5 style="margin-left:10px;">{{names}}</h5></input>
+                </div>
+                </li>
+            {% endfor %}
+            </ol> 
+        </form>
+     </div> 
       <footer class="footer">
         <p>&copy; HSBC 2017</p>
       </footer>
