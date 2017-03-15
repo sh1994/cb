@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <title>Cloud Bot</title>
 
@@ -26,9 +27,9 @@
       <div>
           <nav>
                 <ul class="nav nav-pills pull-left">
-                    <li role="presentation"><a href="/userHome">Data Lake</a>
+                    <li role="presentation" class="active"><a href="/userHome">Data Lake</a>
                     </li>
-                    <li role="presentation" class="active"><a href="/S3tab">AWS S3</a>
+                    <li role="presentation"><a href="/S3tab">AWS S3</a>
                     </li>
                     <li role="presentation"><a href="/redshiftTab">AWS RedShift</a>
                     </li>
@@ -37,23 +38,23 @@
         </div>
 
       <div class="jumbotron" style="margin-top:10px;">
-         <h4 style="margin-left:-420px"> Select objects</h4>
+         <h4 style="margin-left:-420px">{{table_name}}- Select Fields </h4>
 
-            <form action="/s3_delete_bucketObject" method="post">
-               <button type="submit" value="Submit">Delete Objects</button>
-               <input type='hidden' name='bucket' value={{bucket}}>          
+            <form action="/maskdata" method="post">
+               <button type="submit" value="Submit">Mask Fields</button>
+                <input type='hidden' name='table_name' value={{table_name}}>
                <ol>
 
-            {% for names in bucket_objects %}
+            {% for names in data %}
                  <li>
                  <div style="margin-top:10px;margin-left:-350px;">
-                 <input type="checkbox" name="input_bucket_object"  value={{names}} ><h5>{{names}}</h5></in$
+                 <input type="checkbox" name="input_attributes"  value={{names[0]}} ><h5>{{names[0]}}</h5></in$
                 </div>
                 </li>
             {% endfor %}
             </ol>
         </form>
-   
+
   </div>
       <footer class="footer">
         <p>&copy; CLOUDBOT 2017</p>

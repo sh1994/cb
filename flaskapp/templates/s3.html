@@ -45,7 +45,7 @@
                     </li>
                     <li role="presentation" class="active"><a href="#">AWS S3</a>
                     </li>
-                    <li role="presentation"><a href="showSignin">AWS RedShift</a>
+                    <li role="presentation"><a href="redshiftTab">AWS RedShift</a>
                     </li>
                 </ul>
             </nav>
@@ -56,7 +56,8 @@
             <h4 style="margin-left:-400px"> Select S3 buckets</h4>
 
             <form action="/s3_delete_bucketList" method="post">
-               <button type="submit" value="Submit">Delete Buckets</button>
+                <input type="submit" name="DeleteBucket" value="Delete Buckets" formaction="/s3_delete_bucketList">
+                 <input type="submit" name="SendtoRedshift" value="Send to Redshift" formaction="/send_to_redshift">
             <ol>
                            
             {% for names in bucket_list %}
@@ -70,7 +71,7 @@
         </form>
      </div> 
       <footer class="footer">
-        <p>&copy; HSBC 2017</p>
+        <p>&copy; CLOUDBOT 2017</p>
       </footer>
 
 

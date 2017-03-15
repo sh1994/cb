@@ -11,7 +11,6 @@
 
 
   </head>
-</script>
   <body>
 
     <div class="container">
@@ -22,39 +21,36 @@
           </ul>
         </nav>
           <h3 class="text-muted">Cloud Bot</h3>
-          </div>
+             </div>
       <div>
           <nav>
                 <ul class="nav nav-pills pull-left">
                     <li role="presentation"><a href="/userHome">Data Lake</a>
                     </li>
-                    <li role="presentation" class="active"><a href="/S3tab">AWS S3</a>
+                    <li role="presentation"><a href="/S3tab">AWS S3</a>
                     </li>
-                    <li role="presentation"><a href="/redshiftTab">AWS RedShift</a>
+                    <li role="presentation" class="active"><a href="#">AWS RedShift</a>
                     </li>
                 </ul>
             </nav>
-        </div>
+      </div>
+
 
       <div class="jumbotron" style="margin-top:10px;">
-         <h4 style="margin-left:-420px"> Select objects</h4>
+            <h4 style="margin-left:-400px">Redshift Tables</h4>
 
-            <form action="/s3_delete_bucketObject" method="post">
-               <button type="submit" value="Submit">Delete Objects</button>
-               <input type='hidden' name='bucket' value={{bucket}}>          
-               <ol>
+                <ol>
 
-            {% for names in bucket_objects %}
+            {% for names in data %}
                  <li>
                  <div style="margin-top:10px;margin-left:-350px;">
-                 <input type="checkbox" name="input_bucket_object"  value={{names}} ><h5>{{names}}</h5></in$
+                 <h5 style="margin-left:10px;">{{names}}</h5>
                 </div>
                 </li>
             {% endfor %}
             </ol>
-        </form>
-   
-  </div>
+        
+     </div>
       <footer class="footer">
         <p>&copy; CLOUDBOT 2017</p>
       </footer>

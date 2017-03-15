@@ -46,7 +46,7 @@
 
                     <li role="presentation"><a href="S3tab">AWS S3</a>
                     </li>
-                    <li role="presentation"><a href="showSignin">AWS RedShift</a>
+                    <li role="presentation"><a href="redshiftTab">AWS RedShift</a>
                     </li>
                 </ul>
             </nav>
@@ -60,7 +60,7 @@
          {% for tbnames in data %}
   <li>
       <div style="margin-top:10px;margin-left:-350px;">
-       <input type="checkbox" name="input_table"  value={{tbnames[0]}} ><h5 style="margin-left:10px;align:left;">{{tbnames[0]}}</h5></input>
+       <input type="checkbox" name="input_table"  value={{tbnames[0]}} ><a href='maskattributes/{{tbnames[0]}}'><h5 style="margin-left:10px;align:left;">{{tbnames[0]}}</h5></a></input>
      </div></li>
          {% endfor %}
        </ol>
@@ -68,7 +68,7 @@
      </div>
       
       <footer class="footer">
-        <p>&copy; HSBC 2017</p>
+        <p>&copy; CLOUDBOT 2017</p>
       </footer>
 
 
